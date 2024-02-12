@@ -45519,6 +45519,7 @@ const getI18NInstance = (lng) => {
   instance$1.init();
   return instance$1;
 };
+const prodProperties = {};
 class HealthPod {
   constructor(element, options) {
     // root element needed to render the markup
@@ -45568,6 +45569,7 @@ _root = new WeakMap();
 _options = new WeakMap();
 _token = new WeakMap();
 export {
-  HealthPod as default
+  HealthPod as default,
+  prodProperties
 };
 //# sourceMappingURL=index.js.map
