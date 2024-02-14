@@ -42884,6 +42884,9 @@ const classes = {
     container
 };
 const SvgUploadFilled = (props) => /* @__PURE__ */ reactExports.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", ...props }, /* @__PURE__ */ reactExports.createElement("path", { fillRule: "evenodd", d: "M15 10v6H9v-6H5l7-7 7 7h-4Zm4 10v-2H5v2h14Z", clipRule: "evenodd" }));
+const convertFileSrcServerUrl = (filePath) => {
+    return filePath == null ? void 0 : filePath.replace("file://", "http://localhost/_capacitor_file_");
+};
 const Pod = ({ scanBotSdk }) => {
     const { t } = useTranslation();
     const [pages, setPages] = reactExports.useState();
@@ -42907,7 +42910,7 @@ const Pod = ({ scanBotSdk }) => {
                     /* @__PURE__ */ jsxRuntimeExports.jsx(
                         "img",
                         {
-                            src: page.documentImageFileUri,
+                            src: convertFileSrcServerUrl(page.documentImageFileUri),
                             alt: page.pageId
                         }
                     ),
@@ -42915,7 +42918,7 @@ const Pod = ({ scanBotSdk }) => {
                     /* @__PURE__ */ jsxRuntimeExports.jsx(
                         "img",
                         {
-                            src: page.documentPreviewImageFileUri,
+                            src: convertFileSrcServerUrl(page.documentPreviewImageFileUri),
                             alt: page.pageId
                         }
                     ),
@@ -42923,7 +42926,7 @@ const Pod = ({ scanBotSdk }) => {
                     /* @__PURE__ */ jsxRuntimeExports.jsx(
                         "img",
                         {
-                            src: page.originalImageFileUri,
+                            src: convertFileSrcServerUrl(page.originalImageFileUri),
                             alt: page.pageId
                         }
                     ),
@@ -42931,7 +42934,7 @@ const Pod = ({ scanBotSdk }) => {
                     /* @__PURE__ */ jsxRuntimeExports.jsx(
                         "img",
                         {
-                            src: page.originalPreviewImageFileUri,
+                            src: convertFileSrcServerUrl(page.originalPreviewImageFileUri),
                             alt: page.pageId
                         }
                     )
