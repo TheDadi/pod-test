@@ -814,7 +814,7 @@ function requireReact_development() {
                         }
                     }
                 }
-                var ReactElement = function(type, key, ref, self, source, owner, props) {
+                var ReactElement = function(type, key, ref, self2, source, owner, props) {
                     var element = {
                         // This tag allows us to uniquely identify this as a React Element
                         $$typeof: REACT_ELEMENT_TYPE,
@@ -838,7 +838,7 @@ function requireReact_development() {
                             configurable: false,
                             enumerable: false,
                             writable: false,
-                            value: self
+                            value: self2
                         });
                         Object.defineProperty(element, "_source", {
                             configurable: false,
@@ -858,7 +858,7 @@ function requireReact_development() {
                     var props = {};
                     var key = null;
                     var ref = null;
-                    var self = null;
+                    var self2 = null;
                     var source = null;
                     if (config != null) {
                         if (hasValidRef(config)) {
@@ -873,7 +873,7 @@ function requireReact_development() {
                             }
                             key = "" + config.key;
                         }
-                        self = config.__self === void 0 ? null : config.__self;
+                        self2 = config.__self === void 0 ? null : config.__self;
                         source = config.__source === void 0 ? null : config.__source;
                         for (propName in config) {
                             if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
@@ -915,7 +915,7 @@ function requireReact_development() {
                             }
                         }
                     }
-                    return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+                    return ReactElement(type, key, ref, self2, source, ReactCurrentOwner.current, props);
                 }
                 function cloneAndReplaceKey(oldElement, newKey) {
                     var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
@@ -929,7 +929,7 @@ function requireReact_development() {
                     var props = assign({}, element.props);
                     var key = element.key;
                     var ref = element.ref;
-                    var self = element._self;
+                    var self2 = element._self;
                     var source = element._source;
                     var owner = element._owner;
                     if (config != null) {
@@ -967,7 +967,7 @@ function requireReact_development() {
                         }
                         props.children = childArray;
                     }
-                    return ReactElement(element.type, key, ref, self, source, owner, props);
+                    return ReactElement(element.type, key, ref, self2, source, owner, props);
                 }
                 function isValidElement(object) {
                     return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
@@ -2806,9 +2806,9 @@ function requireReactJsxRuntime_development() {
                 }
                 return config.key !== void 0;
             }
-            function warnIfStringRefCannotBeAutoConverted(config, self) {
+            function warnIfStringRefCannotBeAutoConverted(config, self2) {
                 {
-                    if (typeof config.ref === "string" && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+                    if (typeof config.ref === "string" && ReactCurrentOwner.current && self2 && ReactCurrentOwner.current.stateNode !== self2) {
                         var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
                         if (!didWarnAboutStringRefs[componentName]) {
                             error2('Component "%s" contains the string ref "%s". Support for string refs will be removed in a future major release. This case cannot be automatically converted to an arrow function. We ask you to manually fix this case by using useRef() or createRef() instead. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-string-ref', getComponentNameFromType(ReactCurrentOwner.current.type), config.ref);
@@ -2847,7 +2847,7 @@ function requireReactJsxRuntime_development() {
                     });
                 }
             }
-            var ReactElement = function(type, key, ref, self, source, owner, props) {
+            var ReactElement = function(type, key, ref, self2, source, owner, props) {
                 var element = {
                     // This tag allows us to uniquely identify this as a React Element
                     $$typeof: REACT_ELEMENT_TYPE,
@@ -2871,7 +2871,7 @@ function requireReactJsxRuntime_development() {
                         configurable: false,
                         enumerable: false,
                         writable: false,
-                        value: self
+                        value: self2
                     });
                     Object.defineProperty(element, "_source", {
                         configurable: false,
@@ -2886,7 +2886,7 @@ function requireReactJsxRuntime_development() {
                 }
                 return element;
             };
-            function jsxDEV(type, config, maybeKey, source, self) {
+            function jsxDEV(type, config, maybeKey, source, self2) {
                 {
                     var propName;
                     var props = {};
@@ -2906,7 +2906,7 @@ function requireReactJsxRuntime_development() {
                     }
                     if (hasValidRef(config)) {
                         ref = config.ref;
-                        warnIfStringRefCannotBeAutoConverted(config, self);
+                        warnIfStringRefCannotBeAutoConverted(config, self2);
                     }
                     for (propName in config) {
                         if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
@@ -2930,7 +2930,7 @@ function requireReactJsxRuntime_development() {
                             defineRefPropWarningGetter(props, displayName);
                         }
                     }
-                    return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+                    return ReactElement(type, key, ref, self2, source, ReactCurrentOwner.current, props);
                 }
             }
             var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
@@ -3089,7 +3089,7 @@ function requireReactJsxRuntime_development() {
                     }
                 }
             }
-            function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+            function jsxWithValidation(type, props, key, isStaticChildren, source, self2) {
                 {
                     var validType = isValidElementType(type);
                     if (!validType) {
@@ -3116,7 +3116,7 @@ function requireReactJsxRuntime_development() {
                         }
                         error2("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
                     }
-                    var element = jsxDEV(type, props, key, source, self);
+                    var element = jsxDEV(type, props, key, source, self2);
                     if (element == null) {
                         return element;
                     }
@@ -35227,11 +35227,11 @@ _portalOpenInstances2.default.subscribe(bodyTrap);
             throw new TypeError("Cannot call a class as a function");
         }
     }
-    function _possibleConstructorReturn2(self, call) {
-        if (!self) {
+    function _possibleConstructorReturn2(self2, call) {
+        if (!self2) {
             throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
         }
-        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+        return call && (typeof call === "object" || typeof call === "function") ? call : self2;
     }
     function _inherits2(subClass, superClass) {
         if (typeof superClass !== "function" && superClass !== null) {
@@ -35708,11 +35708,11 @@ function _classCallCheck(instance2, Constructor) {
         throw new TypeError("Cannot call a class as a function");
     }
 }
-function _possibleConstructorReturn(self, call) {
-    if (!self) {
+function _possibleConstructorReturn(self2, call) {
+    if (!self2) {
         throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     }
-    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    return call && (typeof call === "object" || typeof call === "function") ? call : self2;
 }
 function _inherits(subClass, superClass) {
     if (typeof superClass !== "function" && superClass !== null) {
@@ -42879,13 +42879,514 @@ tab.default = Tab;
     exports.FormGroupWithTextField = (0, _wrap.default)(_textField2.default);
     exports.FormGroupWithDateInput = (0, _wrap.default)(_dateInput.default);
 })(lib$2);
+/*! Capacitor: https://capacitorjs.com/ - MIT License */
+const createCapacitorPlatforms = (win) => {
+    const defaultPlatformMap = /* @__PURE__ */ new Map();
+    defaultPlatformMap.set("web", { name: "web" });
+    const capPlatforms = win.CapacitorPlatforms || {
+        currentPlatform: { name: "web" },
+        platforms: defaultPlatformMap
+    };
+    const addPlatform = (name, platform) => {
+        capPlatforms.platforms.set(name, platform);
+    };
+    const setPlatform = (name) => {
+        if (capPlatforms.platforms.has(name)) {
+            capPlatforms.currentPlatform = capPlatforms.platforms.get(name);
+        }
+    };
+    capPlatforms.addPlatform = addPlatform;
+    capPlatforms.setPlatform = setPlatform;
+    return capPlatforms;
+};
+const initPlatforms = (win) => win.CapacitorPlatforms = createCapacitorPlatforms(win);
+const CapacitorPlatforms = /* @__PURE__ */ initPlatforms(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : {});
+CapacitorPlatforms.addPlatform;
+CapacitorPlatforms.setPlatform;
+var ExceptionCode;
+(function(ExceptionCode2) {
+    ExceptionCode2["Unimplemented"] = "UNIMPLEMENTED";
+    ExceptionCode2["Unavailable"] = "UNAVAILABLE";
+})(ExceptionCode || (ExceptionCode = {}));
+class CapacitorException extends Error {
+    constructor(message, code, data) {
+        super(message);
+        this.message = message;
+        this.code = code;
+        this.data = data;
+    }
+}
+const getPlatformId = (win) => {
+    var _a2, _b;
+    if (win === null || win === void 0 ? void 0 : win.androidBridge) {
+        return "android";
+    } else if ((_b = (_a2 = win === null || win === void 0 ? void 0 : win.webkit) === null || _a2 === void 0 ? void 0 : _a2.messageHandlers) === null || _b === void 0 ? void 0 : _b.bridge) {
+        return "ios";
+    } else {
+        return "web";
+    }
+};
+const createCapacitor = (win) => {
+    var _a2, _b, _c, _d, _e;
+    const capCustomPlatform = win.CapacitorCustomPlatform || null;
+    const cap = win.Capacitor || {};
+    const Plugins = cap.Plugins = cap.Plugins || {};
+    const capPlatforms = win.CapacitorPlatforms;
+    const defaultGetPlatform = () => {
+        return capCustomPlatform !== null ? capCustomPlatform.name : getPlatformId(win);
+    };
+    const getPlatform = ((_a2 = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _a2 === void 0 ? void 0 : _a2.getPlatform) || defaultGetPlatform;
+    const defaultIsNativePlatform = () => getPlatform() !== "web";
+    const isNativePlatform = ((_b = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _b === void 0 ? void 0 : _b.isNativePlatform) || defaultIsNativePlatform;
+    const defaultIsPluginAvailable = (pluginName) => {
+        const plugin = registeredPlugins.get(pluginName);
+        if (plugin === null || plugin === void 0 ? void 0 : plugin.platforms.has(getPlatform())) {
+            return true;
+        }
+        if (getPluginHeader(pluginName)) {
+            return true;
+        }
+        return false;
+    };
+    const isPluginAvailable = ((_c = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _c === void 0 ? void 0 : _c.isPluginAvailable) || defaultIsPluginAvailable;
+    const defaultGetPluginHeader = (pluginName) => {
+        var _a3;
+        return (_a3 = cap.PluginHeaders) === null || _a3 === void 0 ? void 0 : _a3.find((h) => h.name === pluginName);
+    };
+    const getPluginHeader = ((_d = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _d === void 0 ? void 0 : _d.getPluginHeader) || defaultGetPluginHeader;
+    const handleError = (err) => win.console.error(err);
+    const pluginMethodNoop = (_target, prop, pluginName) => {
+        return Promise.reject(`${pluginName} does not have an implementation of "${prop}".`);
+    };
+    const registeredPlugins = /* @__PURE__ */ new Map();
+    const defaultRegisterPlugin = (pluginName, jsImplementations = {}) => {
+        const registeredPlugin = registeredPlugins.get(pluginName);
+        if (registeredPlugin) {
+            console.warn(`Capacitor plugin "${pluginName}" already registered. Cannot register plugins twice.`);
+            return registeredPlugin.proxy;
+        }
+        const platform = getPlatform();
+        const pluginHeader = getPluginHeader(pluginName);
+        let jsImplementation;
+        const loadPluginImplementation = async () => {
+            if (!jsImplementation && platform in jsImplementations) {
+                jsImplementation = typeof jsImplementations[platform] === "function" ? jsImplementation = await jsImplementations[platform]() : jsImplementation = jsImplementations[platform];
+            } else if (capCustomPlatform !== null && !jsImplementation && "web" in jsImplementations) {
+                jsImplementation = typeof jsImplementations["web"] === "function" ? jsImplementation = await jsImplementations["web"]() : jsImplementation = jsImplementations["web"];
+            }
+            return jsImplementation;
+        };
+        const createPluginMethod = (impl, prop) => {
+            var _a3, _b2;
+            if (pluginHeader) {
+                const methodHeader = pluginHeader === null || pluginHeader === void 0 ? void 0 : pluginHeader.methods.find((m2) => prop === m2.name);
+                if (methodHeader) {
+                    if (methodHeader.rtype === "promise") {
+                        return (options) => cap.nativePromise(pluginName, prop.toString(), options);
+                    } else {
+                        return (options, callback) => cap.nativeCallback(pluginName, prop.toString(), options, callback);
+                    }
+                } else if (impl) {
+                    return (_a3 = impl[prop]) === null || _a3 === void 0 ? void 0 : _a3.bind(impl);
+                }
+            } else if (impl) {
+                return (_b2 = impl[prop]) === null || _b2 === void 0 ? void 0 : _b2.bind(impl);
+            } else {
+                throw new CapacitorException(`"${pluginName}" plugin is not implemented on ${platform}`, ExceptionCode.Unimplemented);
+            }
+        };
+        const createPluginMethodWrapper = (prop) => {
+            let remove2;
+            const wrapper = (...args) => {
+                const p = loadPluginImplementation().then((impl) => {
+                    const fn = createPluginMethod(impl, prop);
+                    if (fn) {
+                        const p2 = fn(...args);
+                        remove2 = p2 === null || p2 === void 0 ? void 0 : p2.remove;
+                        return p2;
+                    } else {
+                        throw new CapacitorException(`"${pluginName}.${prop}()" is not implemented on ${platform}`, ExceptionCode.Unimplemented);
+                    }
+                });
+                if (prop === "addListener") {
+                    p.remove = async () => remove2();
+                }
+                return p;
+            };
+            wrapper.toString = () => `${prop.toString()}() { [capacitor code] }`;
+            Object.defineProperty(wrapper, "name", {
+                value: prop,
+                writable: false,
+                configurable: false
+            });
+            return wrapper;
+        };
+        const addListener = createPluginMethodWrapper("addListener");
+        const removeListener = createPluginMethodWrapper("removeListener");
+        const addListenerNative = (eventName, callback) => {
+            const call = addListener({ eventName }, callback);
+            const remove2 = async () => {
+                const callbackId = await call;
+                removeListener({
+                    eventName,
+                    callbackId
+                }, callback);
+            };
+            const p = new Promise((resolve) => call.then(() => resolve({ remove: remove2 })));
+            p.remove = async () => {
+                console.warn(`Using addListener() without 'await' is deprecated.`);
+                await remove2();
+            };
+            return p;
+        };
+        const proxy = new Proxy({}, {
+            get(_, prop) {
+                switch (prop) {
+                    case "$$typeof":
+                        return void 0;
+                    case "toJSON":
+                        return () => ({});
+                    case "addListener":
+                        return pluginHeader ? addListenerNative : addListener;
+                    case "removeListener":
+                        return removeListener;
+                    default:
+                        return createPluginMethodWrapper(prop);
+                }
+            }
+        });
+        Plugins[pluginName] = proxy;
+        registeredPlugins.set(pluginName, {
+            name: pluginName,
+            proxy,
+            platforms: /* @__PURE__ */ new Set([
+                ...Object.keys(jsImplementations),
+                ...pluginHeader ? [platform] : []
+            ])
+        });
+        return proxy;
+    };
+    const registerPlugin2 = ((_e = capPlatforms === null || capPlatforms === void 0 ? void 0 : capPlatforms.currentPlatform) === null || _e === void 0 ? void 0 : _e.registerPlugin) || defaultRegisterPlugin;
+    if (!cap.convertFileSrc) {
+        cap.convertFileSrc = (filePath) => filePath;
+    }
+    cap.getPlatform = getPlatform;
+    cap.handleError = handleError;
+    cap.isNativePlatform = isNativePlatform;
+    cap.isPluginAvailable = isPluginAvailable;
+    cap.pluginMethodNoop = pluginMethodNoop;
+    cap.registerPlugin = registerPlugin2;
+    cap.Exception = CapacitorException;
+    cap.DEBUG = !!cap.DEBUG;
+    cap.isLoggingEnabled = !!cap.isLoggingEnabled;
+    cap.platform = cap.getPlatform();
+    cap.isNative = cap.isNativePlatform();
+    return cap;
+};
+const initCapacitorGlobal = (win) => win.Capacitor = createCapacitor(win);
+const Capacitor = /* @__PURE__ */ initCapacitorGlobal(typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : {});
+const registerPlugin = Capacitor.registerPlugin;
+Capacitor.Plugins;
+class WebPlugin {
+    constructor(config) {
+        this.listeners = {};
+        this.windowListeners = {};
+        if (config) {
+            console.warn(`Capacitor WebPlugin "${config.name}" config object was deprecated in v3 and will be removed in v4.`);
+            this.config = config;
+        }
+    }
+    addListener(eventName, listenerFunc) {
+        const listeners = this.listeners[eventName];
+        if (!listeners) {
+            this.listeners[eventName] = [];
+        }
+        this.listeners[eventName].push(listenerFunc);
+        const windowListener = this.windowListeners[eventName];
+        if (windowListener && !windowListener.registered) {
+            this.addWindowListener(windowListener);
+        }
+        const remove2 = async () => this.removeListener(eventName, listenerFunc);
+        const p = Promise.resolve({ remove: remove2 });
+        Object.defineProperty(p, "remove", {
+            value: async () => {
+                console.warn(`Using addListener() without 'await' is deprecated.`);
+                await remove2();
+            }
+        });
+        return p;
+    }
+    async removeAllListeners() {
+        this.listeners = {};
+        for (const listener in this.windowListeners) {
+            this.removeWindowListener(this.windowListeners[listener]);
+        }
+        this.windowListeners = {};
+    }
+    notifyListeners(eventName, data) {
+        const listeners = this.listeners[eventName];
+        if (listeners) {
+            listeners.forEach((listener) => listener(data));
+        }
+    }
+    hasListeners(eventName) {
+        return !!this.listeners[eventName].length;
+    }
+    registerWindowListener(windowEventName, pluginEventName) {
+        this.windowListeners[pluginEventName] = {
+            registered: false,
+            windowEventName,
+            pluginEventName,
+            handler: (event) => {
+                this.notifyListeners(pluginEventName, event);
+            }
+        };
+    }
+    unimplemented(msg = "not implemented") {
+        return new Capacitor.Exception(msg, ExceptionCode.Unimplemented);
+    }
+    unavailable(msg = "not available") {
+        return new Capacitor.Exception(msg, ExceptionCode.Unavailable);
+    }
+    async removeListener(eventName, listenerFunc) {
+        const listeners = this.listeners[eventName];
+        if (!listeners) {
+            return;
+        }
+        const index2 = listeners.indexOf(listenerFunc);
+        this.listeners[eventName].splice(index2, 1);
+        if (!this.listeners[eventName].length) {
+            this.removeWindowListener(this.windowListeners[eventName]);
+        }
+    }
+    addWindowListener(handle) {
+        window.addEventListener(handle.windowEventName, handle.handler);
+        handle.registered = true;
+    }
+    removeWindowListener(handle) {
+        if (!handle) {
+            return;
+        }
+        window.removeEventListener(handle.windowEventName, handle.handler);
+        handle.registered = false;
+    }
+}
+const encode = (str) => encodeURIComponent(str).replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent).replace(/[()]/g, escape);
+const decode = (str) => str.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
+class CapacitorCookiesPluginWeb extends WebPlugin {
+    async getCookies() {
+        const cookies = document.cookie;
+        const cookieMap = {};
+        cookies.split(";").forEach((cookie) => {
+            if (cookie.length <= 0)
+                return;
+            let [key, value] = cookie.replace(/=/, "CAP_COOKIE").split("CAP_COOKIE");
+            key = decode(key).trim();
+            value = decode(value).trim();
+            cookieMap[key] = value;
+        });
+        return cookieMap;
+    }
+    async setCookie(options) {
+        try {
+            const encodedKey = encode(options.key);
+            const encodedValue = encode(options.value);
+            const expires = `; expires=${(options.expires || "").replace("expires=", "")}`;
+            const path = (options.path || "/").replace("path=", "");
+            const domain = options.url != null && options.url.length > 0 ? `domain=${options.url}` : "";
+            document.cookie = `${encodedKey}=${encodedValue || ""}${expires}; path=${path}; ${domain};`;
+        } catch (error2) {
+            return Promise.reject(error2);
+        }
+    }
+    async deleteCookie(options) {
+        try {
+            document.cookie = `${options.key}=; Max-Age=0`;
+        } catch (error2) {
+            return Promise.reject(error2);
+        }
+    }
+    async clearCookies() {
+        try {
+            const cookies = document.cookie.split(";") || [];
+            for (const cookie of cookies) {
+                document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, `=;expires=${(/* @__PURE__ */ new Date()).toUTCString()};path=/`);
+            }
+        } catch (error2) {
+            return Promise.reject(error2);
+        }
+    }
+    async clearAllCookies() {
+        try {
+            await this.clearCookies();
+        } catch (error2) {
+            return Promise.reject(error2);
+        }
+    }
+}
+registerPlugin("CapacitorCookies", {
+    web: () => new CapacitorCookiesPluginWeb()
+});
+const readBlobAsBase64 = async (blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+        const base64String = reader.result;
+        resolve(base64String.indexOf(",") >= 0 ? base64String.split(",")[1] : base64String);
+    };
+    reader.onerror = (error2) => reject(error2);
+    reader.readAsDataURL(blob);
+});
+const normalizeHttpHeaders = (headers = {}) => {
+    const originalKeys = Object.keys(headers);
+    const loweredKeys = Object.keys(headers).map((k) => k.toLocaleLowerCase());
+    const normalized = loweredKeys.reduce((acc, key, index2) => {
+        acc[key] = headers[originalKeys[index2]];
+        return acc;
+    }, {});
+    return normalized;
+};
+const buildUrlParams = (params, shouldEncode = true) => {
+    if (!params)
+        return null;
+    const output = Object.entries(params).reduce((accumulator, entry) => {
+        const [key, value] = entry;
+        let encodedValue;
+        let item2;
+        if (Array.isArray(value)) {
+            item2 = "";
+            value.forEach((str) => {
+                encodedValue = shouldEncode ? encodeURIComponent(str) : str;
+                item2 += `${key}=${encodedValue}&`;
+            });
+            item2.slice(0, -1);
+        } else {
+            encodedValue = shouldEncode ? encodeURIComponent(value) : value;
+            item2 = `${key}=${encodedValue}`;
+        }
+        return `${accumulator}&${item2}`;
+    }, "");
+    return output.substr(1);
+};
+const buildRequestInit = (options, extra = {}) => {
+    const output = Object.assign({ method: options.method || "GET", headers: options.headers }, extra);
+    const headers = normalizeHttpHeaders(options.headers);
+    const type = headers["content-type"] || "";
+    if (typeof options.data === "string") {
+        output.body = options.data;
+    } else if (type.includes("application/x-www-form-urlencoded")) {
+        const params = new URLSearchParams();
+        for (const [key, value] of Object.entries(options.data || {})) {
+            params.set(key, value);
+        }
+        output.body = params.toString();
+    } else if (type.includes("multipart/form-data") || options.data instanceof FormData) {
+        const form2 = new FormData();
+        if (options.data instanceof FormData) {
+            options.data.forEach((value, key) => {
+                form2.append(key, value);
+            });
+        } else {
+            for (const key of Object.keys(options.data)) {
+                form2.append(key, options.data[key]);
+            }
+        }
+        output.body = form2;
+        const headers2 = new Headers(output.headers);
+        headers2.delete("content-type");
+        output.headers = headers2;
+    } else if (type.includes("application/json") || typeof options.data === "object") {
+        output.body = JSON.stringify(options.data);
+    }
+    return output;
+};
+class CapacitorHttpPluginWeb extends WebPlugin {
+    /**
+     * Perform an Http request given a set of options
+     * @param options Options to build the HTTP request
+     */
+    async request(options) {
+        const requestInit = buildRequestInit(options, options.webFetchExtra);
+        const urlParams = buildUrlParams(options.params, options.shouldEncodeUrlParams);
+        const url = urlParams ? `${options.url}?${urlParams}` : options.url;
+        const response = await fetch(url, requestInit);
+        const contentType = response.headers.get("content-type") || "";
+        let { responseType = "text" } = response.ok ? options : {};
+        if (contentType.includes("application/json")) {
+            responseType = "json";
+        }
+        let data;
+        let blob;
+        switch (responseType) {
+            case "arraybuffer":
+            case "blob":
+                blob = await response.blob();
+                data = await readBlobAsBase64(blob);
+                break;
+            case "json":
+                data = await response.json();
+                break;
+            case "document":
+            case "text":
+            default:
+                data = await response.text();
+        }
+        const headers = {};
+        response.headers.forEach((value, key) => {
+            headers[key] = value;
+        });
+        return {
+            data,
+            headers,
+            status: response.status,
+            url: response.url
+        };
+    }
+    /**
+     * Perform an Http GET request given a set of options
+     * @param options Options to build the HTTP request
+     */
+    async get(options) {
+        return this.request(Object.assign(Object.assign({}, options), { method: "GET" }));
+    }
+    /**
+     * Perform an Http POST request given a set of options
+     * @param options Options to build the HTTP request
+     */
+    async post(options) {
+        return this.request(Object.assign(Object.assign({}, options), { method: "POST" }));
+    }
+    /**
+     * Perform an Http PUT request given a set of options
+     * @param options Options to build the HTTP request
+     */
+    async put(options) {
+        return this.request(Object.assign(Object.assign({}, options), { method: "PUT" }));
+    }
+    /**
+     * Perform an Http PATCH request given a set of options
+     * @param options Options to build the HTTP request
+     */
+    async patch(options) {
+        return this.request(Object.assign(Object.assign({}, options), { method: "PATCH" }));
+    }
+    /**
+     * Perform an Http DELETE request given a set of options
+     * @param options Options to build the HTTP request
+     */
+    async delete(options) {
+        return this.request(Object.assign(Object.assign({}, options), { method: "DELETE" }));
+    }
+}
+registerPlugin("CapacitorHttp", {
+    web: () => new CapacitorHttpPluginWeb()
+});
 const container = "_container_1avvc_1";
 const classes = {
     container
 };
 const SvgUploadFilled = (props) => /* @__PURE__ */ reactExports.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", ...props }, /* @__PURE__ */ reactExports.createElement("path", { fillRule: "evenodd", d: "M15 10v6H9v-6H5l7-7 7 7h-4Zm4 10v-2H5v2h14Z", clipRule: "evenodd" }));
 const convertFileSrcServerUrl = (filePath) => {
-    return filePath == null ? void 0 : filePath.replace("file://", "http://localhost/_capacitor_file_");
+    return Capacitor.convertFileSrc(filePath || "");
 };
 const Pod = ({ scanBotSdk }) => {
     const { t } = useTranslation();
@@ -43190,7 +43691,7 @@ var _entityMap = {
     "'": "&#39;",
     "/": "&#x2F;"
 };
-function escape(data) {
+function escape$1(data) {
     if (typeof data === "string") {
         return data.replace(/[&<>"'\/]/g, (s) => _entityMap[s]);
     }
@@ -44305,7 +44806,7 @@ class Interpolator {
                 escapeValue: true
             };
         const iOpts = options.interpolation;
-        this.escape = iOpts.escape !== void 0 ? iOpts.escape : escape;
+        this.escape = iOpts.escape !== void 0 ? iOpts.escape : escape$1;
         this.escapeValue = iOpts.escapeValue !== void 0 ? iOpts.escapeValue : true;
         this.useRawValueToEscape = iOpts.useRawValueToEscape !== void 0 ? iOpts.useRawValueToEscape : false;
         this.prefix = iOpts.prefix ? regexEscape(iOpts.prefix) : iOpts.prefixEscaped || "{{";
